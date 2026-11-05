@@ -1,0 +1,52 @@
+/* ================================================================
+   ADDITIONAL CSS — Modern Culture Micro-Interactions & Animations
+   ================================================================ */
+
+/* Fade-in scroll animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger for grids */
+.stagger-children > *:nth-child(1) { transition-delay: 0.04s; }
+.stagger-children > *:nth-child(2) { transition-delay: 0.08s; }
+.stagger-children > *:nth-child(3) { transition-delay: 0.12s; }
+.stagger-children > *:nth-child(4) { transition-delay: 0.16s; }
+.stagger-children > *:nth-child(5) { transition-delay: 0.20s; }
+.stagger-children > *:nth-child(6) { transition-delay: 0.24s; }
+
+/* Subtle text shimmer on hover */
+@keyframes textShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text:hover {
+  background-size: 200% auto;
+  animation: textShimmer 3s ease infinite;
+}
+
+/* Soft card entrance scale */
+@keyframes cardPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-dialog {
+  animation: cardPop 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
